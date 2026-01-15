@@ -1,6 +1,10 @@
-# Molecule-Text Retrieval
+# Molecular Graph Captioning - Data Baseline
 
-Graph neural network for molecular graph and text description retrieval.
+Baseline implementation for molecular graph captioning using autoencoders and text embeddings.
+
+## Project Overview
+
+This module provides tools for preprocessing molecular graphs, generating embeddings, and training models for molecular-to-text alignment using graph neural networks and language models.
 
 ## Installation
 
@@ -8,59 +12,77 @@ Graph neural network for molecular graph and text description retrieval.
 pip install -r requirements.txt
 ```
 
-## Data Setup
+## Project Structure
 
-Place your preprocessed graph data files in the `data/` directory:
-- `train_graphs.pkl`
-- `validation_graphs.pkl`
-- `test_graphs.pkl`
+### Data Directory
+- `data/` - Preprocessed data and embeddings
+  - `molqwen.pt` - Pre-computed molecular embeddings
+  - `train_embeddings.csv` - Training set text embeddings
+  - `validation_embeddings.csv` - Validation set text embeddings
+
+### Core Modules
+
+- **`data_utils.py`** - Dataset utilities and loading functions
+- **`preprocessing.py`** - Graph preprocessing with feature extraction (LPE, RWSE, WL)
+- **`generate_description_embeddings.py`** - Generate text embeddings for molecular descriptions
+- **`inspect_graph_data.py`** - Data inspection and analysis utilities
+- **`display_molecules.py`** - Visualization utilities for molecular structures
+
+### Models & Training
+
+- **`Auto_encoder_model.ipynb`** - Autoencoder architecture and training notebook
+
+### Data & Results
+
+- `test_retrieved_descriptions.csv` - Retrieved descriptions for test molecules
 
 ## Usage
 
-Run the following scripts in order:
-
 ### 1. Inspect Graph Data
 
-Check the structure and contents of your graph files:
+Analyze the structure of your molecular graph data:
 
 ```bash
 python inspect_graph_data.py
 ```
 
-### 2. Generate Description Embeddings
+### 2. Preprocess Graphs
 
-Create BERT embeddings for molecular descriptions:
+Prepare graphs with structural and spectral features:
+
+```bash
+python preprocessing.py
+```
+
+### 3. Generate Text Embeddings
+
+Create embeddings for molecular descriptions:
 
 ```bash
 python generate_description_embeddings.py
 ```
 
-This generates:
+Generates:
 - `data/train_embeddings.csv`
 - `data/validation_embeddings.csv`
 
-### 3. Train GCN Model
+### 4. Train Autoencoder
 
-Train the graph neural network:
-
-```bash
-python train_gcn.py
-```
-
-This creates `model_checkpoint.pt`.
-
-### 4. Run Retrieval
-
-Retrieve descriptions for test molecules:
+Train the autoencoder model (see notebook):
 
 ```bash
-python retrieval_answer.py
+jupyter notebook Auto_encoder_model.ipynb
 ```
 
-This generates `test_retrieved_descriptions.csv` with retrieved descriptions for each test molecule.
+### 5. Visualize Results
 
-## Output
+Display molecular structures and descriptions:
 
-- `model_checkpoint.pt`: Trained GCN model
-- `test_retrieved_descriptions.csv`: Retrieved descriptions for test set
+```bash
+python display_molecules.py
+```
+
+## Requirements
+
+See `requirements.txt` for dependencies.
 
