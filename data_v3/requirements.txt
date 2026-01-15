@@ -1,0 +1,28 @@
+# Core
+torch>=2.1.0
+torchvision
+torchaudio
+
+# PyTorch Geometric (graph handling)
+torch-geometric>=2.4.0
+
+# Hugging Face ecosystem
+transformers>=4.40.0
+accelerate>=0.28.0
+tokenizers>=0.15.0
+huggingface-hub>=0.23.0
+
+# Parameter-efficient fine-tuning
+peft>=0.10.0
+
+# Quantization (QLoRA / 4-bit)
+bitsandbytes>=0.43.0
+
+# Data handling
+numpy
+pandas
+scikit-learn
+tqdm
+
+# Utilities
+einops

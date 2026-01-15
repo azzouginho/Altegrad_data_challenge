@@ -1,3 +1,18 @@
 **.pkl
 **.pt
 **.csv
+# Ignore VSCode settings and cache
+.vscode/
+data_v3/.vscode/
+
+# Ignore Python cache
+data_v3/__pycache__/
+
+# Ignore data files
+data_v3/data/
+data_v3/data/train_embeddings.csv
+data_v3/data/train_graphs.pkl
+
+# Ignore submission files
+data_v3/submission.csv
+data_v3/submission_train.csv
